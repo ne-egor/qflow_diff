@@ -6,8 +6,8 @@
 set projectpath=/home/dos/qflow_diff
 set techdir=/usr/local/share/qflow/tech/osu035
 set sourcedir=/home/dos/qflow_diff/source
-set synthdir=/home/dos/qflow_diff
-set layoutdir=/home/dos/qflow_diff
+set synthdir=/home/dos/qflow_diff/synthesis
+set layoutdir=/home/dos/qflow_diff/layout
 set techname=osu035
 set scriptdir=/usr/local/share/qflow/scripts
 set bindir=/usr/local/share/qflow/bin
