@@ -1,0 +1,50 @@
+Qflow migration logfile created on Чт май 20 15:50:20 MSK 2021
+magic -dnull -noconsole  migrate_counter.tcl
+
+Magic 8.3 revision 164 - Compiled on Пн май 17 19:09:53 MSK 2021.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+Using NULL graphics device.
+Processing system .magicrc file
+Input style lambda=0.20(p): scaleFactor=20, multiplier=1
+Contact size value ignored (using GDS generation rules).
+Contact size value ignored (using GDS generation rules).
+Contact size value ignored (using GDS generation rules).
+Contact size value ignored (using GDS generation rules).
+Contact size value ignored (using GDS generation rules).
+Contact size value ignored (using GDS generation rules).
+4 Magic internal units = 1 Lambda
+Loading "migrate_counter.tcl" from command line.
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )
+
+microns:    0.00 x 0.00    (  0.00,  0.00 ), (  0.00,  0.00 )
+lambda:     0.00 x 0.00    (  0.00,  0.00 ), (  0.00,  0.00 )
+internal:      0 x 0       (     0,  0    ), (     0,  0    )
+Reading LEF data from file /usr/local/share/qflow/tech/osu035/osu035_stdcells.lef.
+This action cannot be undone.
+LEF read, Line 16 (Message): Unknown keyword "OBS" in LEF file; ignoring.
+LEF read, Line 17 (Message): Unknown keyword "PIN" in LEF file; ignoring.
+LEF read: Processed 3179 lines.
+Reading DEF data from file counter.def.
+This action cannot be undone.
+  Processed 3 vias total.
+DEF read, Line 56 (Warning): Number of subcells read (18) does not match the number declared (21).
+DEF read, Line 74 (Warning): Number of pins read (5) does not match the number declared (6).
+  Processed 12 nets total.
+DEF read, Line 194 (Warning): Number of nets read (3) does not match the number declared (2).
+DEF read: Processed 195 lines.
+DEF Read: encountered 3 warnings total.
+Generating LEF output counter.lef for cell counter:
+Diagnostic:  Write LEF header for cell counter
+Diagnostic:  Writing LEF output for cell counter
+Diagnostic:  Scale value is 0.050000
+Extracting DFFSR into DFFSR.ext:
+Extracting FILL into FILL.ext:
+Extracting AND2X2 into AND2X2.ext:
+Extracting INVX1 into INVX1.ext:
+Extracting BUFX2 into BUFX2.ext:
+Extracting NOR2X1 into NOR2X1.ext:
+Extracting counter into counter.ext:
+exttospice finished.
+Migration script ended on Чт май 20 15:50:21 MSK 2021
