@@ -12,6 +12,7 @@ TRACKS X -480.0 DO 45 STEP 160 LAYER metal2 ;
 TRACKS Y 0 DO 23 STEP 200 LAYER metal3 ;
 TRACKS X -320.0 DO 23 STEP 320 LAYER metal4 ;
 
+
 VIAS 3 ;
 - viagen21_post
 + RECT metal1 ( -240 -40 ) ( 240 40 )
@@ -78,47 +79,107 @@ NETS 12 ;
   ( NOR2X1_1 A ) 
   ( INVX1_1 A ) 
   ( DFFSR_1 Q ) 
-  ( BUFX2_1 A ) ;
+  ( BUFX2_1 A ) 
++ ROUTED metal1 ( 640 1600 ) M2_M1 
+  NEW metal2 ( 640 1600 ) ( * 1200 ) M2_M1 
+  NEW metal1 ( 640 1200 ) ( 480 * ) 
+  NEW metal1 ( 640 2600 ) M2_M1 
+  NEW metal2 ( 640 2600 ) ( * 1600 ) 
+  NEW metal1 ( 1600 2800 ) M2_M1 
+  NEW metal2 ( 1600 2800 ) M3_M2 
+  NEW metal3 ( 1600 2800 ) ( 640 * ) M3_M2 
+  NEW metal2 ( 640 2800 ) ( * 2600 ) 
+  NEW metal1 ( 2080 1600 ) ( 1600 * ) M2_M1 
+  NEW metal2 ( 1600 1600 ) ( * 2800 ) ;
 - val[0]
   ( PIN val[0] ) 
-  ( BUFX2_1 Y ) ;
+  ( BUFX2_1 Y ) 
++ ROUTED metal3 ( -159 1000 ) ( 160 * ) M3_M2 
+  NEW metal2 ( 160 1000 ) ( * 800 ) M2_M1 ;
 - _4_[1]
   ( AND2X2_1 B ) 
   ( NOR2X1_1 B ) 
   ( DFFSR_2 Q ) 
-  ( BUFX2_2 A ) ;
+  ( BUFX2_2 A ) 
++ ROUTED metal1 ( 960 3000 ) M2_M1 
+  NEW metal2 ( 960 3000 ) M3_M2 
+  NEW metal3 ( 960 3000 ) ( 640 * ) M3_M2 
+  NEW metal1 ( 640 3000 ) M2_M1 
+  NEW metal1 ( 640 3000 ) ( 480 * ) 
+  NEW metal1 ( 1760 3000 ) M2_M1 
+  NEW metal2 ( 1760 3000 ) M3_M2 
+  NEW metal3 ( 1760 3000 ) ( 960 * ) 
+  NEW metal1 ( 2380 3000 ) M2_M1 
+  NEW metal2 ( 2400 3000 ) M3_M2 
+  NEW metal3 ( 2400 3000 ) ( 1760 * ) ;
 - val[1]
   ( PIN val[1] ) 
-  ( BUFX2_2 Y ) ;
+  ( BUFX2_2 Y ) 
++ ROUTED metal3 ( -159 3000 ) ( 160 * ) M3_M2 
+  NEW metal2 ( 160 3000 ) ( * 2800 ) M2_M1 ;
 - clk
   ( PIN clk ) 
   ( DFFSR_2 CLK ) 
-  ( DFFSR_1 CLK ) ;
+  ( DFFSR_1 CLK ) 
++ ROUTED metal1 ( 4000 2600 ) M2_M1 
+  NEW metal2 ( 4000 2600 ) ( * 1600 ) M3_M2 
+  NEW metal3 ( 4000 1600 ) ( 3680 * ) M3_M2 
+  NEW metal1 ( 3680 1600 ) M2_M1 
+  NEW metal2 ( 4320 4400 ) ( * 4000 ) M3_M2 
+  NEW metal3 ( 4320 4000 ) ( 4000 * ) M3_M2 
+  NEW metal2 ( 4000 4000 ) ( * 2600 ) ;
 - _0_[0]
   ( INVX1_1 Y ) 
-  ( DFFSR_1 D ) ;
+  ( DFFSR_1 D ) 
++ ROUTED metal1 ( 800 1400 ) M2_M1 
+  NEW metal2 ( 800 1400 ) M3_M2 
+  NEW metal3 ( 800 1400 ) ( 4000 * ) M3_M2 
+  NEW metal1 ( 4000 1400 ) M2_M1 ;
 - _1_
   ( INVX1_2 Y ) 
   ( DFFSR_2 R ) 
-  ( DFFSR_1 R ) ;
+  ( DFFSR_1 R ) 
++ ROUTED metal1 ( 4960 3000 ) M2_M1 
+  NEW metal2 ( 4960 3000 ) ( * 1200 ) M2_M1 
+  NEW metal1 ( 5920 1800 ) ( 5440 * ) M2_M1 
+  NEW metal2 ( 5440 1800 ) ( * 3000 ) M2_M1 
+  NEW metal1 ( 5440 3000 ) ( * 3010 ) ;
 - vdd
   ( DFFSR_2 S ) 
-  ( DFFSR_1 S ) ;
+  ( DFFSR_1 S ) 
++ ROUTED metal1 ( 4960 400 ) M2_M1 
+  NEW metal2 ( 4960 400 ) ( * 1000 ) M2_M1 
+  NEW metal1 ( 5280 3800 ) M2_M1 
+  NEW metal2 ( 5280 3800 ) ( * 3200 ) M2_M1 ;
 - _0_[1]
   ( NOR2X1_2 Y ) 
-  ( DFFSR_2 D ) ;
+  ( DFFSR_2 D ) 
++ ROUTED metal1 ( 1120 1800 ) M2_M1 
+  NEW metal2 ( 1120 1800 ) ( * 2000 ) M3_M2 
+  NEW metal3 ( 1120 2000 ) ( 4320 * ) M3_M2 
+  NEW metal2 ( 4320 2000 ) ( * 2800 ) M2_M1 ;
 - _2_
   ( NOR2X1_2 A ) 
-  ( NOR2X1_1 Y ) ;
+  ( NOR2X1_1 Y ) 
++ ROUTED metal1 ( 960 1600 ) M2_M1 
+  NEW metal2 ( 960 1600 ) ( * 2600 ) M2_M1 
+  NEW metal1 ( 960 2600 ) ( 800 * ) ;
 - _3_
   ( NOR2X1_2 B ) 
-  ( AND2X2_1 Y ) ;
+  ( AND2X2_1 Y ) 
++ ROUTED metal1 ( 1280 1200 ) ( 1920 * ) M2_M1 
+  NEW metal2 ( 1920 1200 ) ( 2080 * ) ( * 2400 ) M2_M1 ;
 - rst
   ( PIN rst ) 
-  ( INVX1_2 A ) ;
+  ( INVX1_2 A ) 
++ ROUTED metal3 ( 6400 1000 ) ( 6080 * ) M3_M2 
+  NEW metal2 ( 6080 1000 ) ( * 1600 ) M2_M1 ;
 END NETS
 
 SPECIALNETS 2 ;
+- _1_
++ ROUTED metal1 80 ( 5440 2970 ) ( * 3040 ) ;
+
 - vdd
 + FIXED metal1 80 ( 1440 100 ) ( * * ) viagen21_post
   NEW metal2 80 ( 1440 100 ) ( * * ) viagen32_post

@@ -14,4 +14,13 @@ NOR2X1 NOR2X1_1 ( .A(_4__0_), .B(_4__1_), .Y(_2_) );
 AND2X2 AND2X2_1 ( .A(_4__0_), .B(_4__1_), .Y(_3_) );
 NOR2X1 NOR2X1_2 ( .A(_2_), .B(_3_), .Y(_0__1_) );
 INVX1 INVX1_2 ( .A(rst), .Y(_1_) );
+FILL FILL_0_0_0 ( );
+FILL FILL_0_0_1 ( );
+FILL FILL_0_0_2 ( );
+FILL FILL_0_1_0 ( );
+FILL FILL_0_1_1 ( );
+FILL FILL_0_1_2 ( );
+FILL FILL_1_0_0 ( );
+FILL FILL_1_0_1 ( );
+FILL FILL_1_0_2 ( );
 endmodule
