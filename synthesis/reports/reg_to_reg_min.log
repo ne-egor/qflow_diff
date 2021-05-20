@@ -1,0 +1,33 @@
+Vesta static timing analysis, register-to-register minimum timing
+
+Top 4 minimum delay paths:
+Path DFFSR_1/CLK to DFFSR_1/D delay 520.538 ps
+      0.0 ps     clk:           -> DFFSR_1/CLK
+    442.5 ps  _4__0_: DFFSR_1/Q -> INVX1_1/A
+    528.6 ps  _0__0_: INVX1_1/Y -> DFFSR_1/D
+
+   clock skew at destination = 0
+   hold at destination = -8.10988
+
+Path DFFSR_2/CLK to output pin val[1] delay 535.022 ps
+      0.0 ps     clk:           -> DFFSR_2/CLK
+    417.5 ps  _4__1_: DFFSR_2/Q -> BUFX2_2/A
+    535.0 ps  val[1]: BUFX2_2/Y -> val[1]
+
+Path DFFSR_1/CLK to output pin val[0] delay 564.746 ps
+      0.0 ps     clk:           -> DFFSR_1/CLK
+    442.5 ps  _4__0_: DFFSR_1/Q -> BUFX2_1/A
+    564.7 ps  val[0]: BUFX2_1/Y -> val[0]
+
+Path DFFSR_2/CLK to DFFSR_2/D delay 585.414 ps
+      0.0 ps     clk:            ->  DFFSR_2/CLK
+    417.5 ps  _4__1_:  DFFSR_2/Q -> NOR2X1_1/B
+    512.2 ps     _2_: NOR2X1_1/Y -> NOR2X1_2/A
+    590.0 ps  _0__1_: NOR2X1_2/Y ->  DFFSR_2/D
+
+   clock skew at destination = 0
+   hold at destination = -4.53804
+
+Design meets minimum hold timing.
+-----------------------------------------
+

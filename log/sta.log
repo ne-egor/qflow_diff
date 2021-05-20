@@ -1,0 +1,134 @@
+Qflow static timing analysis logfile created on Чт май 20 15:47:57 MSK 2021
+Running vesta static timing analysis
+vesta --summary reports --long counter.rtlnopwr.v /usr/local/share/qflow/tech/osu035/osu035_stdcells.lib
+----------------------------------------------
+Vesta static timing analysis tool
+for qflow 1.3.18
+(c) 2013-2018 Tim Edwards, Open Circuit Design
+----------------------------------------------
+
+Parsing library "osu035_stdcells"
+End of library at line 6636
+Parsing module "counter"
+Lib read /usr/local/share/qflow/tech/osu035/osu035_stdcells.lib:  Processed 6637 lines.
+Verilog netlist read:  Processed 20 lines.
+Number of paths analyzed:  4
+
+Top 4 maximum delay paths:
+Path DFFSR_1/CLK to DFFSR_2/D delay 883.506 ps
+      0.0 ps     clk:            ->  DFFSR_1/CLK
+    451.7 ps  _4__0_:  DFFSR_1/Q -> AND2X2_1/A
+    643.2 ps     _3_: AND2X2_1/Y -> NOR2X1_2/B
+    704.2 ps  _0__1_: NOR2X1_2/Y ->  DFFSR_2/D
+
+   clock skew at destination = 0
+   setup at destination = 179.277
+
+Path DFFSR_1/CLK to DFFSR_1/D delay 726.308 ps
+      0.0 ps     clk:           -> DFFSR_1/CLK
+    451.7 ps  _4__0_: DFFSR_1/Q -> INVX1_1/A
+    543.9 ps  _0__0_: INVX1_1/Y -> DFFSR_1/D
+
+   clock skew at destination = 0
+   setup at destination = 182.36
+
+Path DFFSR_1/CLK to output pin val[0] delay 606.975 ps
+      0.0 ps     clk:           -> DFFSR_1/CLK
+    451.7 ps  _4__0_: DFFSR_1/Q -> BUFX2_1/A
+    607.0 ps  val[0]: BUFX2_1/Y -> val[0]
+
+Path DFFSR_2/CLK to output pin val[1] delay 576.64 ps
+      0.0 ps     clk:           -> DFFSR_2/CLK
+    429.2 ps  _4__1_: DFFSR_2/Q -> BUFX2_2/A
+    576.6 ps  val[1]: BUFX2_2/Y -> val[1]
+
+Computed maximum clock frequency (zero margin) = 1131.85 MHz
+-----------------------------------------
+
+Number of paths analyzed:  4
+
+Top 4 minimum delay paths:
+Path DFFSR_1/CLK to DFFSR_1/D delay 520.538 ps
+      0.0 ps     clk:           -> DFFSR_1/CLK
+    442.5 ps  _4__0_: DFFSR_1/Q -> INVX1_1/A
+    528.6 ps  _0__0_: INVX1_1/Y -> DFFSR_1/D
+
+   clock skew at destination = 0
+   hold at destination = -8.10988
+
+Path DFFSR_2/CLK to output pin val[1] delay 535.022 ps
+      0.0 ps     clk:           -> DFFSR_2/CLK
+    417.5 ps  _4__1_: DFFSR_2/Q -> BUFX2_2/A
+    535.0 ps  val[1]: BUFX2_2/Y -> val[1]
+
+Path DFFSR_1/CLK to output pin val[0] delay 564.746 ps
+      0.0 ps     clk:           -> DFFSR_1/CLK
+    442.5 ps  _4__0_: DFFSR_1/Q -> BUFX2_1/A
+    564.7 ps  val[0]: BUFX2_1/Y -> val[0]
+
+Path DFFSR_2/CLK to DFFSR_2/D delay 585.414 ps
+      0.0 ps     clk:            ->  DFFSR_2/CLK
+    417.5 ps  _4__1_:  DFFSR_2/Q -> NOR2X1_1/B
+    512.2 ps     _2_: NOR2X1_1/Y -> NOR2X1_2/A
+    590.0 ps  _0__1_: NOR2X1_2/Y ->  DFFSR_2/D
+
+   clock skew at destination = 0
+   hold at destination = -4.53804
+
+Design meets minimum hold timing.
+-----------------------------------------
+
+Number of paths analyzed:  4
+
+Top 4 maximum delay paths:
+Path input pin clk to DFFSR_1/CLK delay 337.338 ps
+      0.0 ps  clk:   -> DFFSR_1/CLK
+
+   setup at destination = 337.338
+
+Path input pin clk to DFFSR_2/CLK delay 337.338 ps
+      0.0 ps  clk:   -> DFFSR_2/CLK
+
+   setup at destination = 337.338
+
+Path input pin rst to DFFSR_1/R delay 278.878 ps
+      0.0 ps  rst:           -> INVX1_2/A
+    151.3 ps  _1_: INVX1_2/Y -> DFFSR_1/R
+
+   setup at destination = 127.559
+
+Path input pin rst to DFFSR_2/R delay 278.878 ps
+      0.0 ps  rst:           -> INVX1_2/A
+    151.3 ps  _1_: INVX1_2/Y -> DFFSR_2/R
+
+   setup at destination = 127.559
+
+-----------------------------------------
+
+Number of paths analyzed:  4
+
+Top 4 minimum delay paths:
+Path input pin clk to DFFSR_2/CLK delay 21.6 ps
+      0.0 ps  clk:   -> DFFSR_2/CLK
+
+   hold at destination = 21.6
+
+Path input pin clk to DFFSR_1/CLK delay 21.6 ps
+      0.0 ps  clk:   -> DFFSR_1/CLK
+
+   hold at destination = 21.6
+
+Path input pin rst to DFFSR_2/R delay 170.17 ps
+      0.0 ps  rst:           -> INVX1_2/A
+    151.3 ps  _1_: INVX1_2/Y -> DFFSR_2/R
+
+   hold at destination = 18.8508
+
+Path input pin rst to DFFSR_1/R delay 170.17 ps
+      0.0 ps  rst:           -> INVX1_2/A
+    151.3 ps  _1_: INVX1_2/Y -> DFFSR_1/R
+
+   hold at destination = 18.8508
+
+-----------------------------------------
+
