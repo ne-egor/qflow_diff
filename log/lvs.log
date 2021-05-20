@@ -1,0 +1,107 @@
+Qflow LVS logfile created on Чт май 20 15:51:51 MSK 2021
+netgen ${lvs_options} -batch lvs "${rootname}.spice ${rootname}" 
+	"${synthdir}/${rootname}.spc ${rootname}" ${setup_script} ${outfile} 
+	-json -blackbox
+Netgen 1.5.176 compiled on Пн май 17 19:11:19 MSK 2021
+Warning: netgen command 'format' use fully-qualified name '::netgen::format'
+Warning: netgen command 'global' use fully-qualified name '::netgen::global'
+Generating JSON file result
+Treating empty subcircuits as black-box cells
+Reading netlist file counter.spice
+Reading netlist file /home/dos/qflow_diff/synthesis/counter.spc
+Reading setup file /usr/local/share/qflow/tech/osu035/osu035_setup.tcl
+No property w found for device r
+No property l found for device r
+Error /usr/local/share/qflow/tech/osu035/osu035_setup.tcl:5 (ignoring), No such cell or bad file number!
+Error /usr/local/share/qflow/tech/osu035/osu035_setup.tcl:6 (ignoring), No such cell or bad file number!
+Warning:  There were errors reading the setup file
+Comparison output logged to file comp.out
+Logging to file "comp.out" enabled
+Contents of circuit 1:  Circuit: 'BUFX2'
+Circuit BUFX2 contains 0 device instances.
+Circuit contains 0 nets.
+Contents of circuit 2:  Circuit: 'BUFX2'
+Circuit BUFX2 contains 4 device instances.
+  Class: pfet                  instances:   2
+  Class: nfet                  instances:   2
+Circuit contains 5 nets.
+
+Circuit BUFX2 contains no devices.
+Contents of circuit 1:  Circuit: 'NOR2X1'
+Circuit NOR2X1 contains 0 device instances.
+Circuit contains 0 nets.
+Contents of circuit 2:  Circuit: 'NOR2X1'
+Circuit NOR2X1 contains 4 device instances.
+  Class: pfet                  instances:   2
+  Class: nfet                  instances:   2
+Circuit contains 6 nets.
+
+Circuit NOR2X1 contains no devices.
+Contents of circuit 1:  Circuit: 'DFFSR'
+Circuit DFFSR contains 0 device instances.
+Circuit contains 0 nets.
+Contents of circuit 2:  Circuit: 'DFFSR'
+Circuit DFFSR contains 32 device instances.
+  Class: pfet                  instances:  16
+  Class: nfet                  instances:  16
+Circuit contains 20 nets.
+
+Circuit DFFSR contains no devices.
+Contents of circuit 1:  Circuit: 'AND2X2'
+Circuit AND2X2 contains 0 device instances.
+Circuit contains 0 nets.
+Contents of circuit 2:  Circuit: 'AND2X2'
+Circuit AND2X2 contains 6 device instances.
+  Class: pfet                  instances:   3
+  Class: nfet                  instances:   3
+Circuit contains 7 nets.
+
+Circuit AND2X2 contains no devices.
+Contents of circuit 1:  Circuit: 'INVX1'
+Circuit INVX1 contains 0 device instances.
+Circuit contains 0 nets.
+Contents of circuit 2:  Circuit: 'INVX1'
+Circuit INVX1 contains 2 device instances.
+  Class: pfet                  instances:   1
+  Class: nfet                  instances:   1
+Circuit contains 4 nets.
+
+Circuit INVX1 contains no devices.
+Contents of circuit 1:  Circuit: 'counter'
+Circuit counter contains 9 device instances.
+  Class: NOR2X1                instances:   2
+  Class: BUFX2                 instances:   2
+  Class: DFFSR                 instances:   2
+  Class: AND2X2                instances:   1
+  Class: INVX1                 instances:   2
+Circuit contains 13 nets.
+Contents of circuit 2:  Circuit: 'counter'
+Circuit counter contains 9 device instances.
+  Class: NOR2X1                instances:   2
+  Class: BUFX2                 instances:   2
+  Class: DFFSR                 instances:   2
+  Class: AND2X2                instances:   1
+  Class: INVX1                 instances:   2
+Circuit contains 13 nets.
+
+Circuit 1 contains 9 devices, Circuit 2 contains 9 devices.
+Circuit 1 contains 13 nets,    Circuit 2 contains 13 nets.
+
+Netlists match uniquely.
+Result: The top level cell failed pin matching.
+
+Logging to file "comp.out" disabled
+LVS Done.
+/usr/local/share/qflow/scripts/count_lvs.py
+LVS reports:
+    net count difference = 0
+    device count difference = 0
+    unmatched nets = 0
+    unmatched devices = 0
+    unmatched pins = 1
+    property failures = 0
+
+Total errors = 1
+Design fails LVS with 1 errors.
+See lvs.log and comp.out for error details.
+Synthesis flow stopped due to error condition.

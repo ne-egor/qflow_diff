@@ -1,0 +1,87 @@
+
+Subcircuit pins:
+Circuit 1: BUFX2                           |Circuit 2: BUFX2                           
+-------------------------------------------|-------------------------------------------
+A                                          |A                                          
+gnd                                        |gnd                                        
+Y                                          |Y                                          
+vdd                                        |vdd                                        
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes BUFX2 and BUFX2 are equivalent.
+
+Subcircuit pins:
+Circuit 1: NOR2X1                          |Circuit 2: NOR2X1                          
+-------------------------------------------|-------------------------------------------
+A                                          |A                                          
+B                                          |B                                          
+gnd                                        |gnd                                        
+Y                                          |Y                                          
+vdd                                        |vdd                                        
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes NOR2X1 and NOR2X1 are equivalent.
+
+Subcircuit pins:
+Circuit 1: DFFSR                           |Circuit 2: DFFSR                           
+-------------------------------------------|-------------------------------------------
+Q                                          |Q                                          
+CLK                                        |CLK                                        
+R                                          |R                                          
+S                                          |S                                          
+D                                          |D                                          
+gnd                                        |gnd                                        
+vdd                                        |vdd                                        
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes DFFSR and DFFSR are equivalent.
+
+Subcircuit pins:
+Circuit 1: AND2X2                          |Circuit 2: AND2X2                          
+-------------------------------------------|-------------------------------------------
+A                                          |A                                          
+B                                          |B                                          
+gnd                                        |gnd                                        
+Y                                          |Y                                          
+vdd                                        |vdd                                        
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes AND2X2 and AND2X2 are equivalent.
+
+Subcircuit pins:
+Circuit 1: INVX1                           |Circuit 2: INVX1                           
+-------------------------------------------|-------------------------------------------
+A                                          |A                                          
+gnd                                        |gnd                                        
+Y                                          |Y                                          
+vdd                                        |vdd                                        
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes INVX1 and INVX1 are equivalent.
+
+Subcircuit summary:
+Circuit 1: counter                         |Circuit 2: counter                         
+-------------------------------------------|-------------------------------------------
+BUFX2 (2)                                  |BUFX2 (2)                                  
+NOR2X1 (2)                                 |NOR2X1 (2)                                 
+DFFSR (2)                                  |DFFSR (2)                                  
+AND2X2 (1)                                 |AND2X2 (1)                                 
+INVX1 (2)                                  |INVX1 (2)                                  
+Number of devices: 9                       |Number of devices: 9                       
+Number of nets: 13                         |Number of nets: 13                         
+---------------------------------------------------------------------------------------
+Circuits match uniquely.
+Netlists match uniquely.
+
+Subcircuit pins:
+Circuit 1: counter                         |Circuit 2: counter                         
+-------------------------------------------|-------------------------------------------
+clk                                        |clk                                        
+val[0]                                     |val[0]                                     
+val[1]                                     |val[1]                                     
+rst                                        |rst                                        
+vdd                                        |vdd                                        
+(no matching pin)                          |gnd                                        
+---------------------------------------------------------------------------------------
+Cell pin lists for counter and counter altered to match.
+The top level cell failed pin matching.

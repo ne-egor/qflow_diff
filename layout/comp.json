@@ -1,0 +1,133 @@
+[
+  {
+   "pins": [
+      [
+        "A",
+        "gnd",
+        "Y",
+        "vdd"
+      ], [
+        "A",
+        "gnd",
+        "Y",
+        "vdd"
+      ]
+   ]
+  },
+  {
+   "pins": [
+      [
+        "A",
+        "B",
+        "gnd",
+        "Y",
+        "vdd"
+      ], [
+        "A",
+        "B",
+        "gnd",
+        "Y",
+        "vdd"
+      ]
+   ]
+  },
+  {
+   "pins": [
+      [
+        "Q",
+        "CLK",
+        "R",
+        "S",
+        "D",
+        "gnd",
+        "vdd"
+      ], [
+        "Q",
+        "CLK",
+        "R",
+        "S",
+        "D",
+        "gnd",
+        "vdd"
+      ]
+   ]
+  },
+  {
+   "pins": [
+      [
+        "A",
+        "B",
+        "gnd",
+        "Y",
+        "vdd"
+      ], [
+        "A",
+        "B",
+        "gnd",
+        "Y",
+        "vdd"
+      ]
+   ]
+  },
+  {
+   "pins": [
+      [
+        "A",
+        "gnd",
+        "Y",
+        "vdd"
+      ], [
+        "A",
+        "gnd",
+        "Y",
+        "vdd"
+      ]
+   ]
+  },
+  {
+   "name": [
+      "counter",
+      "counter"
+   ],
+   "devices": [
+       [
+         ["BUFX2", 2],
+         ["NOR2X1", 2],
+         ["DFFSR", 2],
+         ["AND2X2", 1],
+         ["INVX1", 2 ]
+       ], [
+         ["BUFX2", 2 ],
+         ["NOR2X1", 2 ],
+         ["DFFSR", 2 ],
+         ["AND2X2", 1 ],
+         ["INVX1", 2 ]
+       ]
+   ],
+   "nets": [
+    13,
+    13
+   ],
+   "badnets": [
+   ],
+   "badelements": [
+   ],
+   "pins": [
+      [
+        "clk",
+        "val[0]",
+        "val[1]",
+        "rst",
+        "vdd",
+        "(no matching pin)"
+      ], [
+        "clk",
+        "val[0]",
+        "val[1]",
+        "rst",
+        "vdd",
+        "gnd"
+      ]
+   ]
+  }
+]
