@@ -1,27 +1,27 @@
 Vesta static timing analysis, pin-to-register and register-to-pin minimum timing
 
 Top 4 minimum delay paths:
-Path input pin clk to DFFSR_2/CLK delay 21.6 ps
-      0.0 ps  clk:   -> DFFSR_2/CLK
+Path input pin clk to DFFSR_2/CLK delay 21.719 ps
+      0.1 ps  clk:   -> DFFSR_2/CLK
 
    hold at destination = 21.6
 
-Path input pin clk to DFFSR_1/CLK delay 21.6 ps
-      0.0 ps  clk:   -> DFFSR_1/CLK
+Path input pin clk to DFFSR_1/CLK delay 21.7456 ps
+      0.1 ps  clk:   -> DFFSR_1/CLK
 
    hold at destination = 21.6
 
-Path input pin rst to DFFSR_2/R delay 170.17 ps
+Path input pin rst to DFFSR_2/R delay 171.311 ps
       0.0 ps  rst:           -> INVX1_2/A
-    151.3 ps  _1_: INVX1_2/Y -> DFFSR_2/R
+    152.5 ps  _1_: INVX1_2/Y -> DFFSR_2/R
 
-   hold at destination = 18.8508
+   hold at destination = 18.8438
 
-Path input pin rst to DFFSR_1/R delay 170.17 ps
+Path input pin rst to DFFSR_1/R delay 171.395 ps
       0.0 ps  rst:           -> INVX1_2/A
-    151.3 ps  _1_: INVX1_2/Y -> DFFSR_1/R
+    152.6 ps  _1_: INVX1_2/Y -> DFFSR_1/R
 
-   hold at destination = 18.8508
+   hold at destination = 18.8438
 
 -----------------------------------------
 

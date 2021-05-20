@@ -1,27 +1,27 @@
 Vesta static timing analysis, pin-to-register and register-to-pin maximum timing
 
 Top 4 maximum delay paths:
-Path input pin clk to DFFSR_1/CLK delay 337.338 ps
-      0.0 ps  clk:   -> DFFSR_1/CLK
+Path input pin clk to DFFSR_1/CLK delay 337.484 ps
+      0.1 ps  clk:   -> DFFSR_1/CLK
 
    setup at destination = 337.338
 
-Path input pin clk to DFFSR_2/CLK delay 337.338 ps
-      0.0 ps  clk:   -> DFFSR_2/CLK
+Path input pin clk to DFFSR_2/CLK delay 337.457 ps
+      0.1 ps  clk:   -> DFFSR_2/CLK
 
    setup at destination = 337.338
 
-Path input pin rst to DFFSR_1/R delay 278.878 ps
+Path input pin rst to DFFSR_1/R delay 280.114 ps
       0.0 ps  rst:           -> INVX1_2/A
-    151.3 ps  _1_: INVX1_2/Y -> DFFSR_1/R
+    152.6 ps  _1_: INVX1_2/Y -> DFFSR_1/R
 
-   setup at destination = 127.559
+   setup at destination = 127.563
 
-Path input pin rst to DFFSR_2/R delay 278.878 ps
+Path input pin rst to DFFSR_2/R delay 280.03 ps
       0.0 ps  rst:           -> INVX1_2/A
-    151.3 ps  _1_: INVX1_2/Y -> DFFSR_2/R
+    152.5 ps  _1_: INVX1_2/Y -> DFFSR_2/R
 
-   setup at destination = 127.559
+   setup at destination = 127.563
 
 -----------------------------------------
 
