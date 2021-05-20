@@ -1,0 +1,691 @@
+Qflow synthesis logfile created on Чт май 20 15:46:09 MSK 2021
+Running yosys for verilog parsing and synthesis
+yosys  -s counter.ys
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2016  Clifford Wolf <clifford@clifford.at>           |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.7 (git sha1 61f6811, gcc 5.4.0-6ubuntu1~16.04.4 -O2 -fstack-protector-strong -fPIC -Os)
+
+
+-- Executing script file `counter.ys' --
+
+1. Executing Liberty frontend.
+Imported 39 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend.
+Parsing Verilog input from `/home/dos/qflow_diff/source/counter.v' to AST representation.
+Generating RTLIL representation for module `\counter'.
+Successfully finished Verilog frontend.
+
+3. Executing SYNTH pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \counter
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \counter
+Removed 0 unused modules.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_INIT pass (extract init attributes).
+
+3.2.4. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst in `\counter.$proc$/home/dos/qflow_diff/source/counter.v:6$1'.
+
+3.2.5. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\counter.$proc$/home/dos/qflow_diff/source/counter.v:6$1'.
+     1/1: $0\val[1:0]
+
+3.2.6. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.2.7. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\counter.\val' using process `\counter.$proc$/home/dos/qflow_diff/source/counter.v:6$1'.
+  created $adff cell `$procdff$3' with positive edge clock and positive level reset.
+
+3.2.8. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `counter.$proc$/home/dos/qflow_diff/source/counter.v:6$1'.
+Cleaned up 0 empty switches.
+
+3.3. Executing OPT_EXPR pass (perform const folding).
+
+3.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter..
+
+3.5. Executing CHECK pass (checking for obvious problems).
+checking module counter..
+found and reported 0 problems.
+
+3.6. Executing OPT pass (performing simple optimizations).
+
+3.6.1. Executing OPT_EXPR pass (perform const folding).
+
+3.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+3.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter.
+Performed a total of 0 changes.
+
+3.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+3.6.6. Executing OPT_RMDFF pass (remove dff with constant values).
+
+3.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter..
+
+3.6.8. Executing OPT_EXPR pass (perform const folding).
+
+3.6.9. Finished OPT passes. (There is nothing left to do.)
+
+3.7. Executing WREDUCE pass (reducing word size of cells).
+Removed top 31 bits (of 32) from port B of cell counter.$add$/home/dos/qflow_diff/source/counter.v:10$2 ($add).
+Removed top 30 bits (of 32) from port Y of cell counter.$add$/home/dos/qflow_diff/source/counter.v:10$2 ($add).
+
+3.8. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module counter:
+  creating $macc model for $add$/home/dos/qflow_diff/source/counter.v:10$2 ($add).
+  creating $alu model for $macc $add$/home/dos/qflow_diff/source/counter.v:10$2.
+  creating $alu cell for $add$/home/dos/qflow_diff/source/counter.v:10$2: $auto$alumacc.cc:470:replace_alu$4
+  created 1 $alu and 0 $macc cells.
+
+3.9. Executing SHARE pass (SAT-based resource sharing).
+
+3.10. Executing OPT pass (performing simple optimizations).
+
+3.10.1. Executing OPT_EXPR pass (perform const folding).
+
+3.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+3.10.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.10.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter.
+Performed a total of 0 changes.
+
+3.10.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+3.10.6. Executing OPT_RMDFF pass (remove dff with constant values).
+
+3.10.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter..
+
+3.10.8. Executing OPT_EXPR pass (perform const folding).
+
+3.10.9. Finished OPT passes. (There is nothing left to do.)
+
+3.11. Executing FSM pass (extract and optimize FSM).
+
+3.11.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+3.11.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+3.11.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+3.11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter..
+
+3.11.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+3.11.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+3.11.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+3.11.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+3.12. Executing OPT pass (performing simple optimizations).
+
+3.12.1. Executing OPT_EXPR pass (perform const folding).
+
+3.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+3.12.3. Executing OPT_RMDFF pass (remove dff with constant values).
+
+3.12.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter..
+
+3.12.5. Finished fast OPT passes.
+
+3.13. Executing MEMORY pass.
+
+3.13.1. Executing MEMORY_DFF pass (merging $dff cells to $memrd and $memwr).
+
+3.13.2. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter..
+
+3.13.3. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+3.13.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter..
+
+3.13.5. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter..
+
+3.15. Executing OPT pass (performing simple optimizations).
+
+3.15.1. Executing OPT_EXPR pass (perform const folding).
+
+3.15.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+3.15.3. Executing OPT_RMDFF pass (remove dff with constant values).
+
+3.15.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter..
+
+3.15.5. Finished fast OPT passes.
+
+3.16. Executing MEMORY_MAP pass (converting $mem cells to logic and flip-flops).
+
+3.17. Executing OPT pass (performing simple optimizations).
+
+3.17.1. Executing OPT_EXPR pass (perform const folding).
+
+3.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+3.17.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.17.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter.
+Performed a total of 0 changes.
+
+3.17.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+3.17.6. Executing OPT_RMDFF pass (remove dff with constant values).
+
+3.17.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter..
+
+3.17.8. Executing OPT_EXPR pass (perform const folding).
+
+3.17.9. Finished OPT passes. (There is nothing left to do.)
+
+3.18. Executing TECHMAP pass (map to technology primitives).
+
+3.18.1. Executing Verilog-2005 frontend.
+Parsing Verilog input from `<techmap.v>' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+Mapping counter.$procdff$3 ($adff) with simplemap.
+
+3.18.2. Executing AST frontend in derive mode using pre-parsed AST for module `\_90_alu'.
+Parameter \A_SIGNED = 0
+Parameter \B_SIGNED = 0
+Parameter \A_WIDTH = 1
+Parameter \B_WIDTH = 2
+Parameter \Y_WIDTH = 2
+Generating RTLIL representation for module `$paramod\_90_alu\A_SIGNED=0\B_SIGNED=0\A_WIDTH=1\B_WIDTH=2\Y_WIDTH=2'.
+
+3.18.3. Continuing TECHMAP pass.
+Mapping counter.$auto$alumacc.cc:470:replace_alu$4 using $paramod\_90_alu\A_SIGNED=0\B_SIGNED=0\A_WIDTH=1\B_WIDTH=2\Y_WIDTH=2.
+Mapping counter.$techmap$auto$alumacc.cc:470:replace_alu$4.$xor$<techmap.v>:262$56 ($xor) with simplemap.
+Mapping counter.$techmap$auto$alumacc.cc:470:replace_alu$4.$xor$<techmap.v>:263$57 ($xor) with simplemap.
+Mapping counter.$techmap$auto$alumacc.cc:470:replace_alu$4.$and$<techmap.v>:260$55 ($and) with simplemap.
+
+3.18.4. Executing AST frontend in derive mode using pre-parsed AST for module `\_90_lcu'.
+Parameter \WIDTH = 2
+Generating RTLIL representation for module `$paramod\_90_lcu\WIDTH=2'.
+
+3.18.5. Executing PROC pass (convert processes to netlists).
+
+3.18.5.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.18.5.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+3.18.5.3. Executing PROC_INIT pass (extract init attributes).
+
+3.18.5.4. Executing PROC_ARST pass (detect async resets in processes).
+
+3.18.5.5. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod\_90_lcu\WIDTH=2.$proc$<techmap.v>:207$68'.
+     1/4: $0\p[1:0] [1]
+     2/4: $0\g[1:0] [1]
+     3/4: $0\g[1:0] [0]
+     4/4: $0\p[1:0] [0]
+
+3.18.5.6. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod\_90_lcu\WIDTH=2.\p' from process `$paramod\_90_lcu\WIDTH=2.$proc$<techmap.v>:207$68'.
+No latch inferred for signal `$paramod\_90_lcu\WIDTH=2.\g' from process `$paramod\_90_lcu\WIDTH=2.$proc$<techmap.v>:207$68'.
+
+3.18.5.7. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.18.5.8. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `$paramod\_90_lcu\WIDTH=2.$proc$<techmap.v>:207$68'.
+Cleaned up 0 empty switches.
+
+3.18.6. Executing OPT pass (performing simple optimizations).
+
+3.18.6.1. Executing OPT_EXPR pass (perform const folding).
+
+3.18.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\_90_lcu\WIDTH=2'.
+Removed a total of 0 cells.
+
+3.18.6.3. Executing OPT_RMDFF pass (remove dff with constant values).
+
+3.18.6.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\_90_lcu\WIDTH=2..
+  removing unused `$and' cell `$and$<techmap.v>:222$73'.
+  removing unused non-port wire \j.
+  removing unused non-port wire \i.
+  removed 2 unused temporary wires.
+
+3.18.6.5. Finished fast OPT passes.
+
+3.18.7. Continuing TECHMAP pass.
+Mapping counter.$auto$alumacc.cc:470:replace_alu$4.lcu using $paramod\_90_lcu\WIDTH=2.
+Mapping counter.$techmap$auto$alumacc.cc:470:replace_alu$4.$ternary$<techmap.v>:258$54 ($mux) with simplemap.
+Mapping counter.$techmap$auto$alumacc.cc:470:replace_alu$4.$not$<techmap.v>:258$53 ($not) with simplemap.
+Mapping counter.$auto$alumacc.cc:470:replace_alu$4.B_conv ($pos) with simplemap.
+Mapping counter.$auto$alumacc.cc:470:replace_alu$4.A_conv ($pos) with simplemap.
+Mapping counter.$techmap$auto$alumacc.cc:470:replace_alu$4.lcu.$and$<techmap.v>:212$69 ($and) with simplemap.
+Mapping counter.$techmap$auto$alumacc.cc:470:replace_alu$4.lcu.$and$<techmap.v>:221$71 ($and) with simplemap.
+Mapping counter.$techmap$auto$alumacc.cc:470:replace_alu$4.lcu.$or$<techmap.v>:212$70 ($or) with simplemap.
+Mapping counter.$techmap$auto$alumacc.cc:470:replace_alu$4.lcu.$or$<techmap.v>:221$72 ($or) with simplemap.
+No more expansions possible.
+
+3.19. Executing OPT pass (performing simple optimizations).
+
+3.19.1. Executing OPT_EXPR pass (perform const folding).
+Replacing $_MUX_ cell `$auto$simplemap.cc:277:simplemap_mux$74' (??0) in module `\counter' with constant driver `$techmap$auto$alumacc.cc:470:replace_alu$4.$ternary$<techmap.v>:258$54_Y [0] = \val [0]'.
+Replacing $_MUX_ cell `$auto$simplemap.cc:277:simplemap_mux$75' (??0) in module `\counter' with constant driver `$techmap$auto$alumacc.cc:470:replace_alu$4.$ternary$<techmap.v>:258$54_Y [1] = \val [1]'.
+Replacing $_XOR_ cell `$auto$simplemap.cc:85:simplemap_bitop$59' (0?) in module `\counter' with constant driver `$techmap$auto$alumacc.cc:470:replace_alu$4.$xor$<techmap.v>:262$56_Y [1] = \val [1]'.
+Replacing $_XOR_ cell `$auto$simplemap.cc:85:simplemap_bitop$60' (?0) in module `\counter' with constant driver `$techmap$auto$alumacc.cc:470:replace_alu$4.$xor$<techmap.v>:263$57_Y [0] = $techmap$auto$alumacc.cc:470:replace_alu$4.$xor$<techmap.v>:262$56_Y [0]'.
+Replacing $_AND_ cell `$auto$simplemap.cc:85:simplemap_bitop$63' (1?) in module `\counter' with constant driver `$techmap$auto$alumacc.cc:470:replace_alu$4.$and$<techmap.v>:260$55_Y [0] = \val [0]'.
+Replacing $_AND_ cell `$auto$simplemap.cc:85:simplemap_bitop$78' (const_and) in module `\counter' with constant driver `$techmap$auto$alumacc.cc:470:replace_alu$4.lcu.$and$<techmap.v>:212$69_Y = 1'0'.
+Replacing $_OR_ cell `$auto$simplemap.cc:85:simplemap_bitop$80' (?0) in module `\counter' with constant driver `$auto$alumacc.cc:484:replace_alu$6 [0] = \val [0]'.
+Replacing $_AND_ cell `$auto$simplemap.cc:85:simplemap_bitop$64' (const_and) in module `\counter' with constant driver `$techmap$auto$alumacc.cc:470:replace_alu$4.$and$<techmap.v>:260$55_Y [1] = 1'0'.
+Replacing $_OR_ cell `$auto$simplemap.cc:85:simplemap_bitop$81' (0?) in module `\counter' with constant driver `$auto$alumacc.cc:484:replace_alu$6 [1] = $techmap$auto$alumacc.cc:470:replace_alu$4.lcu.$and$<techmap.v>:221$71_Y'.
+Replacing $_XOR_ cell `$auto$simplemap.cc:85:simplemap_bitop$62' (0?) in module `\counter' with constant driver `$techmap$auto$alumacc.cc:470:replace_alu$4.$xor$<techmap.v>:263$57_Y [2] = $techmap$auto$alumacc.cc:470:replace_alu$4.lcu.$and$<techmap.v>:221$71_Y'.
+
+3.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+3.19.3. Executing OPT_RMDFF pass (remove dff with constant values).
+
+3.19.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter..
+  removing unused `$_NOT_' cell `$auto$simplemap.cc:37:simplemap_not$76'.
+  removing unused `$_NOT_' cell `$auto$simplemap.cc:37:simplemap_not$77'.
+  removing unused `$_AND_' cell `$auto$simplemap.cc:85:simplemap_bitop$79'.
+
+3.19.5. Finished fast OPT passes.
+
+3.20. Executing ABC pass (technology mapping using ABC).
+
+3.20.1. Extracting gate netlist of module `\counter' to `<abc-temp-dir>/input.blif'..
+Extracted 2 gates and 5 wires to a netlist network with 2 inputs and 2 outputs.
+
+3.20.1.1. Executing ABC.
+Running ABC command: berkeley-abc -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: Entered genlib library with 15 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + retime -o 
+ABC: + map 
+ABC: Warning: The network was strashed and balanced before mapping.
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+3.20.1.2. Re-integrating ABC results.
+ABC RESULTS:               NOT cells:        1
+ABC RESULTS:               XOR cells:        1
+ABC RESULTS:        internal signals:        1
+ABC RESULTS:           input signals:        2
+ABC RESULTS:          output signals:        2
+Removing temp directory.
+
+3.21. Executing OPT pass (performing simple optimizations).
+
+3.21.1. Executing OPT_EXPR pass (perform const folding).
+
+3.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+3.21.3. Executing OPT_RMDFF pass (remove dff with constant values).
+
+3.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter..
+
+3.21.5. Finished fast OPT passes.
+
+3.22. Executing HIERARCHY pass (managing design hierarchy).
+
+3.22.1. Analyzing design hierarchy..
+Top module:  \counter
+
+3.22.2. Analyzing design hierarchy..
+Top module:  \counter
+Removed 0 unused modules.
+
+3.23. Printing statistics.
+
+=== counter ===
+
+   Number of wires:                  4
+   Number of wire bits:              6
+   Number of public wires:           3
+   Number of public wire bits:       4
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  4
+     $_DFF_PP0_                      2
+     $_NOT_                          1
+     $_XOR_                          1
+
+3.24. Executing CHECK pass (checking for obvious problems).
+checking module counter..
+found and reported 0 problems.
+
+4. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell DFFNEGX1 (noninv, pins=3, area=384.00) is a direct match for cell type $_DFF_N_.
+  cell DFFPOSX1 (noninv, pins=3, area=384.00) is a direct match for cell type $_DFF_P_.
+  cell DFFSR (noninv, pins=5, area=704.00) is a direct match for cell type $_DFFSR_PNN_.
+  create mapping for $_DFFSR_PPN_ from mapping for $_DFFSR_PNN_.
+  create mapping for $_DFFSR_PNP_ from mapping for $_DFFSR_PNN_.
+  create mapping for $_DFFSR_PPP_ from mapping for $_DFFSR_PNP_.
+  create mapping for $_DFFSR_NNN_ from mapping for $_DFFSR_PNN_.
+  create mapping for $_DFFSR_NPN_ from mapping for $_DFFSR_NNN_.
+  create mapping for $_DFFSR_NNP_ from mapping for $_DFFSR_NNN_.
+  create mapping for $_DFFSR_NPP_ from mapping for $_DFFSR_NNP_.
+  create mapping for $_DFF_NN0_ from mapping for $_DFFSR_NNN_.
+  create mapping for $_DFF_NN1_ from mapping for $_DFFSR_NNN_.
+  create mapping for $_DFF_NP0_ from mapping for $_DFFSR_NPP_.
+  create mapping for $_DFF_NP1_ from mapping for $_DFFSR_NPP_.
+  create mapping for $_DFF_PN0_ from mapping for $_DFFSR_PNN_.
+  create mapping for $_DFF_PN1_ from mapping for $_DFFSR_PNN_.
+  create mapping for $_DFF_PP0_ from mapping for $_DFFSR_PPP_.
+  create mapping for $_DFF_PP1_ from mapping for $_DFFSR_PPP_.
+  final dff cell mappings:
+    DFFNEGX1 _DFF_N_ (.CLK( C), .D( D), .Q( Q));
+    DFFPOSX1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    DFFSR _DFF_NN0_ (.CLK(~C), .D( D), .Q( Q), .R( R), .S( 1));
+    DFFSR _DFF_NN1_ (.CLK(~C), .D( D), .Q( Q), .R( 1), .S( R));
+    DFFSR _DFF_NP0_ (.CLK(~C), .D( D), .Q( Q), .R(~R), .S( 1));
+    DFFSR _DFF_NP1_ (.CLK(~C), .D( D), .Q( Q), .R( 1), .S(~R));
+    DFFSR _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .R( R), .S( 1));
+    DFFSR _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .R( 1), .S( R));
+    DFFSR _DFF_PP0_ (.CLK( C), .D( D), .Q( Q), .R(~R), .S( 1));
+    DFFSR _DFF_PP1_ (.CLK( C), .D( D), .Q( Q), .R( 1), .S(~R));
+    DFFSR _DFFSR_NNN_ (.CLK(~C), .D( D), .Q( Q), .R( R), .S( S));
+    DFFSR _DFFSR_NNP_ (.CLK(~C), .D( D), .Q( Q), .R(~R), .S( S));
+    DFFSR _DFFSR_NPN_ (.CLK(~C), .D( D), .Q( Q), .R( R), .S(~S));
+    DFFSR _DFFSR_NPP_ (.CLK(~C), .D( D), .Q( Q), .R(~R), .S(~S));
+    DFFSR _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .R( R), .S( S));
+    DFFSR _DFFSR_PNP_ (.CLK( C), .D( D), .Q( Q), .R(~R), .S( S));
+    DFFSR _DFFSR_PPN_ (.CLK( C), .D( D), .Q( Q), .R( R), .S(~S));
+    DFFSR _DFFSR_PPP_ (.CLK( C), .D( D), .Q( Q), .R(~R), .S(~S));
+Mapping DFF cells in module `\counter':
+  mapped 2 $_DFF_PP0_ cells to \DFFSR cells.
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+  Cell `$auto$dfflibmap.cc:511:dfflibmap$85' is identical to cell `$auto$dfflibmap.cc:511:dfflibmap$87'.
+    Redirecting output \Y: $auto$rtlil.cc:1731:NotGate$86 = $auto$rtlil.cc:1731:NotGate$88
+    Removing $_NOT_ cell `$auto$dfflibmap.cc:511:dfflibmap$85' from module `\counter'.
+Removed a total of 1 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter.
+Performed a total of 0 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+5.6. Executing OPT_RMDFF pass (remove dff with constant values).
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter..
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+
+5.9. Finished OPT passes. (There is nothing left to do.)
+
+6. Executing ABC pass (technology mapping using ABC).
+
+6.1. Extracting gate netlist of module `\counter' to `<abc-temp-dir>/input.blif'..
+Extracted 3 gates and 6 wires to a netlist network with 3 inputs and 3 outputs.
+
+6.1.1. Executing ABC.
+Running ABC command: /usr/local/share/qflow/bin/yosys-abc -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /usr/local/share/qflow/tech/osu035/osu035_stdcells.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.01 sec
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFNEGX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFPOSX1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFSR".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "LATCH".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "PADINOUT".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUFX1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUFX2".
+ABC: Scl_LibertyReadGenlib() skipped cell "PADFC" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADNC" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADVDD" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "PADGND" without logic function.
+ABC: Library "osu035_stdcells" from "/usr/local/share/qflow/tech/osu035/osu035_stdcells.lib" has 28 cells (11 skipped: 4 seq; 3 tri-state; 4 no func).  Time =     0.01 sec
+ABC: Memory =    0.38 MB. Time =     0.01 sec
+ABC: Warning: Detected 2 multi-output gates (for example, "FAX1").
+ABC: + strash 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + ifraig 
+ABC: + retime 
+ABC: + strash 
+ABC: + dch -f 
+ABC: + map -M 1 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+6.1.2. Re-integrating ABC results.
+ABC RESULTS:            AND2X2 cells:        1
+ABC RESULTS:             INVX1 cells:        2
+ABC RESULTS:            NOR2X1 cells:        2
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:        3
+ABC RESULTS:          output signals:        3
+Removing temp directory.
+
+7. Executing FLATTEN pass (flatten design).
+No more expansions possible.
+Removed 0 unused cells and 6 unused wires.
+
+8. Executing IOPADMAP pass (mapping inputs/outputs to IO-PAD cells).
+Don't map input port counter.clk: Missing option -inpad.
+Don't map input port counter.rst: Missing option -inpad.
+Mapping port counter.val using BUFX2.
+
+9. Executing OPT pass (performing simple optimizations).
+
+9.1. Executing OPT_EXPR pass (perform const folding).
+
+9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter.
+Performed a total of 0 changes.
+
+9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter'.
+Removed a total of 0 cells.
+
+9.6. Executing OPT_RMDFF pass (remove dff with constant values).
+
+9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter..
+
+9.8. Executing OPT_EXPR pass (perform const folding).
+
+9.9. Finished OPT passes. (There is nothing left to do.)
+
+10. Executing BLIF backend.
+
+11. Printing statistics.
+
+=== counter ===
+
+   Number of wires:                  8
+   Number of wire bits:             11
+   Number of public wires:           8
+   Number of public wire bits:      11
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  9
+     AND2X2                          1
+     BUFX2                           2
+     DFFSR                           2
+     INVX1                           2
+     NOR2X1                          2
+
+End of script. Logfile hash: 67399ee2ff
+CPU: user 0.24s system 0.01s, MEM: 35.75 MB total, 9.29 MB resident
+Yosys 0.7 (git sha1 61f6811, gcc 5.4.0-6ubuntu1~16.04.4 -O2 -fstack-protector-strong -fPIC -Os)
+Time spent: 27% 1x share (0 sec), 10% 15x opt_clean (0 sec), ...
+Running getpowerground to determine power and ground net names.
+getpowerground.tcl  /usr/local/share/qflow/tech/osu035/osu035_stdcells.lef
+Cleaning up output syntax
+ypostproc.tcl counter_mapped.blif counter /usr/local/share/qflow/tech/osu035/osu035.sh vdd gnd 
+Cleaning up blif file syntax
+Running blifFanout (iterative)
+Each iteration calls:
+blifFanout -l 200 -c 30 -I counter_nofanout -s nullstring -p /usr/local/share/qflow/tech/osu035/osu035_stdcells.lib -b BUFX2,CLKBUF1 -i A,A -o Y,Y tmp.blif counter.blif
+
+blifFanout for qflow 1.3.18
+Parsing library "osu035_stdcells"
+End of library at line 6636
+Lib Read:  Processed 6637 lines.
+Top internal fanout is 4 (load 198.044) from node _4_[0],
+driven by DFFSR with strength 102.912 (fF driven at latency 200)
+Top fanout load-to-strength ratio is 1.9244 (latency = 384.88 ps)
+Top input node fanout is 2 (load 26.8938) from node clk.
+Warning 1: load of 208.044 is 2.02157 times greater than strongest gate DFFSR
+This warning will only be repeated for larger overload ratios.  Warning count reflects
+the total number of overloaded nets.
+2 gates exceed specified minimum load.
+0 buffers were added.
+0 gates were changed.
+
+Gate counts by drive strength:
+
+	"" gates	In: 2    	Out: 2    	+0
+	"1" gates	In: 4    	Out: 4    	+0
+	"2" gates	In: 3    	Out: 3    	+0
+
+Number of gates changed: 0
+gates resized: 0
+
+Generating RTL verilog and SPICE netlist file in directory
+	 /home/dos/qflow_diff/synthesis
+Files:
+   Verilog: /home/dos/qflow_diff/synthesis/counter.rtl.v
+   Verilog: /home/dos/qflow_diff/synthesis/counter.rtlnopwr.v
+   Verilog: /home/dos/qflow_diff/synthesis/counter.rtlbb.v
+   Spice:   /home/dos/qflow_diff/synthesis/counter.spc
+
+Running blif2Verilog.
+Running blif2BSpice.
+Running spi2xspice.py
+spi2xspice.py "/usr/local/share/qflow/tech/osu035/osu035_stdcells.lib" counter.spc counter.xspice
+
+Synthesis script ended on Чт май 20 15:46:11 MSK 2021

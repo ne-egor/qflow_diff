@@ -1,0 +1,44 @@
+* XSpice netlist created from SPICE and liberty sources by spi2xspice.py
+*SPICE netlist created from BLIF module counter by blif2BSpice
+.subckt counter a_vdd a_gnd a_clk a_rst a_val_0_ a_val_1_
+ABUFX2_1 [_4__0_] val_0_ d_lut_BUFX2
+ABUFX2_2 [_4__1_] val_1_ d_lut_BUFX2
+ADFFSR_1 _0__0_ clk ~vdd ~_1_ _4__0_ NULL ddflop
+ADFFSR_2 _0__1_ clk ~vdd ~_1_ _4__1_ NULL ddflop
+AINVX1_1 [_4__0_] _0__0_ d_lut_INVX1
+ANOR2X1_1 [_4__0_ _4__1_] _2_ d_lut_NOR2X1
+AAND2X2_1 [_4__0_ _4__1_] _3_ d_lut_AND2X2
+ANOR2X1_2 [_2_ _3_] _0__1_ d_lut_NOR2X1
+AINVX1_2 [rst] _1_ d_lut_INVX1
+
+.model todig_3v3 adc_bridge(in_high=2.1999999999999997 in_low=1.0999999999999999 rise_delay=10n fall_delay=10n)
+.model toana_3v3 dac_bridge(out_high=3.3 out_low=0)
+
+.model ddflop d_dff(ic=0 rise_delay=1n fall_delay=1n)
+.model dzero d_pulldown(load=1p)
+.model done d_pullup(load=1p)
+
+AA2D1 [a_vdd] [vdd] todig_3v3
+AA2D2 [a_gnd] [gnd] todig_3v3
+AA2D3 [a_clk] [clk] todig_3v3
+AA2D4 [a_rst] [rst] todig_3v3
+AD2A1 [val_0_] [a_val_0_] toana_3v3
+AD2A2 [val_1_] [a_val_1_] toana_3v3
+
+.ends counter
+ 
+
+* BUFX2 A
+.model d_lut_BUFX2 d_lut (rise_delay=1n fall_delay=1n input_load=1p
++ table_values "01")
+* DFFSR P0002
+* INVX1 (!A)
+.model d_lut_INVX1 d_lut (rise_delay=1n fall_delay=1n input_load=1p
++ table_values "10")
+* NOR2X1 (!(A+B))
+.model d_lut_NOR2X1 d_lut (rise_delay=1n fall_delay=1n input_load=1p
++ table_values "1000")
+* AND2X2 (A B)
+.model d_lut_AND2X2 d_lut (rise_delay=1n fall_delay=1n input_load=1p
++ table_values "0001")
+.end
